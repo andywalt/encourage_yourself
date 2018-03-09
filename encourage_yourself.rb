@@ -1,6 +1,4 @@
 feelings = ["anxiety", "depression", "discouragement", "unlovely"]
-#anxiety = ["Anxiety does not empty tomorrow of its sorrows, but only empties today of its strength. -Charles Spurgeon", "Anxiety is the hand maiden of creativity. T. S. Eliot"]
-#depression = puts "Sad sad"
 
 input = nil
 loop do
@@ -27,12 +25,18 @@ end
 
 welcome
 
+#Is there a way to put this whole loop in one object so I can call it with one word similar to "welcome"?
+
+#I'd like to use someone's name in the script below but I'm not sure how to make it accesible below. I think the local variable of name is limited to the method of "welcome"
+# but I'm unsure how to call it in another method (or in this case the loop below).
+
 loop do
   puts <<-eos
-  Are you feeling:
+  Are you feeling?
   Anxiety   Depression
   Discouragement  Unlovely
-  Something Else (type a one word answer please)
+  Different Feeling
+  Type your answer below:
    eos
   feeling = gets.chomp.downcase
   case feeling
@@ -42,17 +46,27 @@ loop do
   when "depression"
    puts "Depression is the inability to construct a future. -Rollo May"
   when "discouragement"
-   puts "In spite of everything I shall rise again: I will take up my pencil, which I have forsaken in my great discouragement, and I will go on with my drawing. -Vincent Van Gogh"
+   puts <<-eos
+   In spite of everything I shall rise again: 
+   I will take up my pencil, 
+   which I have forsaken in my great discouragement, 
+   and I will go on with my drawing. 
+   -Vincent Van Gogh
+    eos
   when "unlovely"
-   puts "Everyone is like a butterfly, they start out ugly and awkward and then morph into beautiful graceful butterflies that everyone loves. -Drew Barrymore"
+   puts <<-eos
+   "Everyone is like a butterfly, they start out ugly 
+   and awkward and then morph into beautiful graceful 
+   butterflies that everyone loves." 
+   -Drew Barrymore
+   eos
   else
-   #feelings.push(answer) #I'd like to add the answered feeling to the array to eventually research quotes for that topic.
-   puts "The feeling of #{feeling} will be added to our list and encouragement will be brought in the future. Try choosing one of the feelings listed above."
+   #feelings.push(answer) #I'd like to add the answered feeling to the array to eventually research quotes for that topic. Think this will be better used when I started using Ruby on Rails.
+   puts "The feeling of #{feeling} will be added to our list and encouragement will be researched for the future. Try choosing one of the feelings listed above."
   end
   puts "Do you need more encouragement? (yes/no)"
   need_more = gets.chomp
-  if need_more != 'yes'
-  	puts "Hope you're feeling better!"
-    break
+  until need_more == 'yes'
+    abort("Awesome! Hope you're feeling better! Now go encourage someone else!")
   end
 end
