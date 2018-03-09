@@ -3,28 +3,28 @@ feelings = ["anxiety", "depression", "discouragement", "unlovely"]
 #depression = puts "Sad sad"
 
 puts "Do you need a little encouragement? (yes/no)"
-yn = gets.chomp
- if yn.empty?
- 	puts "You didn't put anything. Please type Yes or No."
- else
- 	puts "Well let's get started!"
- end
+input = gets.chomp
+if input.empty?
+  puts "You didn't put anything. Please type Yes or No."
+else
+	puts "Well let's get started!"
+end
 
 def welcome
-  puts "What is your name?"
-  name = gets.chomp.capitalize
-  puts "Hello #{name}! I've got some encouragement for you!"
+ puts "What is your name?"
+ name = gets.chomp.capitalize
+ puts "Hello #{name}! I've got some encouragement for you!"
 end
 
 welcome
 
 def feels
-	puts <<-eos
-    Are you feeling:
-    Anxiety   Depression
-    Discouragement  Unlovely
-    Something Else (type a one word answer please)
-        eos
+  puts <<-eos
+  Are you feeling:
+  Anxiety   Depression
+  Discouragement  Unlovely
+  Something Else (type a one word answer please)
+   eos
 	answer = gets.chomp.downcase
 	if answer == "anxiety"
 		puts "Anxiety does not empty tomorrow of its sorrows, but only empties today of its strength. -Charles Spurgeon"
