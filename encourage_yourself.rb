@@ -4,7 +4,7 @@ feelings = ["anxiety", "depression", "discouragement", "unlovely"]
 
 input = nil
 loop do
-  print "Do you need a little encouragement? (Yes or No)"
+  print "Do you need some encouragement? (Yes or No)"
   input = gets.chomp
 
   if input.empty?
@@ -26,34 +26,30 @@ def welcome
 end
 
 welcome
-puts <<-eos
+
+loop do
+  puts <<-eos
   Are you feeling:
   Anxiety   Depression
   Discouragement  Unlovely
   Something Else (type a one word answer please)
    eos
-
-feeling = gets.chomp.downcase
-
-
-case feeling
-  when feeling = "anxiety"
-  	puts "Anxiety does not empty tomorrow of its sorrows, but only empties today of its strength. -Charles Spurgeon"
-  	#I'd like to call an array (eventually randomized) of quotes here for each feeling.
-  when feeling = "depression"
+  feeling = gets.chomp.downcase
+  case feeling
+  when "anxiety"
+   puts "Anxiety does not empty tomorrow of its sorrows, but only empties today of its strength. -Charles Spurgeon"
+   #I'd like to call an array (eventually randomized) of quotes here for each feeling.
+  when "depression"
    puts "Depression is the inability to construct a future. -Rollo May"
-  when feeling = "discouragement"
+  when "discouragement"
    puts "In spite of everything I shall rise again: I will take up my pencil, which I have forsaken in my great discouragement, and I will go on with my drawing. -Vincent Van Gogh"
-  when feeling = "unlovely"
+  when "unlovely"
    puts "Everyone is like a butterfly, they start out ugly and awkward and then morph into beautiful graceful butterflies that everyone loves. -Drew Barrymore"
   else
    #feelings.push(answer) #I'd like to add the answered feeling to the array to eventually research quotes for that topic.
    puts "The feeling of #{feeling} will be added to our list and encouragement will be brought in the future. Try choosing one of the feelings listed above."
   end
-
-loop do
-	feeling
-  puts "#{name}, Do you need more encouragement? (yes/no)"
+  puts "Do you need more encouragement? (yes/no)"
   need_more = gets.chomp
   if need_more != 'yes'
   	puts "Hope you're feeling better!"
