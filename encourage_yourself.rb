@@ -36,8 +36,6 @@ end
 
 Person.new
 
-#Is there a way to put this whole loop in one object so I can call it with one word similar to "welcome"?
-
 #I'd like to use someone's name in the script below but I'm not sure how to make it accesible below. I think the local variable of name is limited to the method of "welcome"
 # but I'm unsure how to call it in another method (or in this case the loop below).
 
