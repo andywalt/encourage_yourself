@@ -32,11 +32,26 @@ class Person
     end
     puts "Hello #{name}! We've got some encouragement for you!"
   end
+  def self.get_name
+    Person::name
+  end
 end
 
-Person.new
+class Pain_Scale < Person
+  def pain_level
+    avar = Person.get_name  # I assume "avar" means "a variable"
+    puts "On a scale of 1 to 10 (1 being Fantastic & 10 being Terrible), how do you feel?"
+    pain_number = 0
+    pain_number = gets.to_i
+    puts "#{name}, you're feeling around a #{pain_number}."
+  end
+end
 
-#I'd like to use someone's name in the script below but I'm not sure how to make it accesible below. I think the local variable of name is limited to the method of "welcome"
+
+Pain_Scale.new.pain_level
+
+
+#I'd like to use someone's name in the script below but I'm not sure how to make it accesible below. I think the local variable of "name" is limited to the class of Person
 # but I'm unsure how to call it in another method (or in this case the loop below).
 
 def feeling_help
