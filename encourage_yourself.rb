@@ -42,7 +42,7 @@ class Pain_Scale < Person
     avar = Person.get_name  # I assume "avar" means "a variable"
     puts "On a scale of 1 to 10 (1 being Fantastic & 10 being Terrible), how do you feel?"
     pain_number = 0
-    pain_number = gets.to_i
+    pain_number = gets.chomp.to_i
     puts "#{name}, you're feeling around a #{pain_number}."
   end
 end
