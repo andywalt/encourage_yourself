@@ -34,12 +34,14 @@ class Person
   end
 end
 
-Person.new
+# 1. Store the initialized person in a local variable
+person = Person.new
 
 #I'd like to use someone's name in the script below but I'm not sure how to make it accesible below. I think the local variable of name is limited to the method of "welcome"
 # but I'm unsure how to call it in another method (or in this case the loop below).
 
-def feeling_help
+def feeling_help(person)
+  # 3. The person variable is now available in the context of the feeling_help method!
   loop do
     puts <<-eos
     Are you feeling?
@@ -76,4 +78,5 @@ def feeling_help
   end
 end
 
-feeling_help
+# 2. Pass the local person variable into the feeling_help method
+feeling_help(person)
