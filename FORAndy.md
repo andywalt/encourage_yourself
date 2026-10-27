@@ -18,6 +18,29 @@ The program’s “shape” is a conversation loop:
 
 It’s therapy-adjacent software written as a beginner Ruby exercise. The product idea and the language practice grew up together.
 
+## The north-star product (what you actually wanted)
+
+The 2018 script was the rehearsal. The real product in your head was closer to this:
+
+1. **Profiles** — Jim isn’t a one-off `gets.chomp`; he’s a returning person.
+2. **Check-ins** — Jim says he’s lonely (or anxious, etc.) and rates how bad it feels right now.
+3. **Matched quotes** — the system shows quotes for *that* emotional ailment, not a generic pep talk.
+4. **Re-score** — after the quote, Jim rates again.
+5. **Learning over time** — if loneliness quote A moves people from worse → better more often than quote B, promote A.
+
+That’s not “a quote app.” That’s a **closed feedback loop**: intervene → measure → learn → intervene better. The pain-scale branch was already reaching for step 2 and 4; what was missing was *persisting* people and outcomes so the loop could compound.
+
+Sketch of the core records (mental model, not a framework mandate):
+
+```text
+User        → id, name, …
+Feeling     → "loneliness", "anxiety", …
+Quote       → text, feeling_id, …
+CheckIn     → user, feeling, score_before, quote_shown, score_after, delta
+```
+
+Once you have many `CheckIn` rows, “what helps?” becomes a query: average `delta` per quote (and maybe per feeling). The hard product decisions sit *around* that query — especially which way the score runs (does 10 mean “feeling great” or “hurting most”?).
+
 ## The architecture (yes, even a one-file app has one)
 
 Think of the script as three rooms in a small house:
